@@ -7,6 +7,7 @@
 	* dmidecode.c: Add 9 new processor families (DMI type 4).
 	* dmidecode.c: Add 2 new Intel socket types (DMI type 4).
 	* dmidecode.c: Add Min/Max/Configured memory voltages (DMI type 17).
+	* dmidecode.c: Add LRDIMM to memory device list (DMI type 17).
 
 2012-03-26  Anton Arapov  <anton@redhat.com>
 

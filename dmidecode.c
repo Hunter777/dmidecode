@@ -25,7 +25,7 @@
  *   are deemed to be part of the source code.
  *
  * Unless specified otherwise, all references are aimed at the "System
- * Management BIOS Reference Specification, Version 2.7.0" document,
+ * Management BIOS Reference Specification, Version 2.8.0" document,
  * available from http://www.dmtf.org/standards/smbios.
  *
  * Note to contributors:
@@ -2328,7 +2328,8 @@ static void dmi_memory_device_type_detail(u16 code)
 		"Cache DRAM",
 		"Non-Volatile",
 		"Registered (Buffered)",
-		"Unbuffered (Unregistered)"  /* 14 */
+		"Unbuffered (Unregistered)",
+		"LRDIMM"  /* 15 */
 	};
 
 	if ((code & 0x7FFE) == 0)
