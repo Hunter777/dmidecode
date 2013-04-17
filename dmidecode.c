@@ -711,6 +711,7 @@ static const char *dmi_processor_family(const struct dmi_header *h, u16 ver)
 		{ 0x3C, "Opteron 4100" },
 		{ 0x3D, "Opteron 6200" },
 		{ 0x3E, "Opteron 4200" },
+		{ 0x3F, "FX" },
 
 		{ 0x40, "MIPS" },
 		{ 0x41, "MIPS R4000" },
@@ -720,8 +721,14 @@ static const char *dmi_processor_family(const struct dmi_header *h, u16 ver)
 		{ 0x45, "MIPS R10000" },
 		{ 0x46, "C-Series" },
 		{ 0x47, "E-Series" },
-		{ 0x48, "S-Series" },
+		{ 0x48, "A-Series" },
 		{ 0x49, "G-Series" },
+		{ 0x4A, "Z-Series" },
+		{ 0x4B, "R-Series" },
+		{ 0x4C, "Opteron 4300" },
+		{ 0x4D, "Opteron 6300" },
+		{ 0x4E, "Opteron 3300" },
+		{ 0x4F, "FirePro" },
 
 		{ 0x50, "SPARC" },
 		{ 0x51, "SuperSPARC" },
@@ -834,6 +841,8 @@ static const char *dmi_processor_family(const struct dmi_header *h, u16 ver)
 		{ 0xDF, "Multi-Core Xeon 7xxx" },
 		{ 0xE0, "Multi-Core Xeon 3400" },
 
+		{ 0xE4, "Opteron 3000" },
+		{ 0xE5, "Sempron II" },
 		{ 0xE6, "Embedded Opteron Quad-Core" },
 		{ 0xE7, "Phenom Triple-Core" },
 		{ 0xE8, "Turion Ultra Dual-Core Mobile" },
@@ -1155,14 +1164,16 @@ static const char *dmi_processor_upgrade(u8 code)
 		"Socket BGA1288",
 		"Socket rPGA988B",
 		"Socket BGA1023",
-		"Socket BGA1024",
+		"Socket BGA1224",
 		"Socket BGA1155",
 		"Socket LGA1356",
 		"Socket LGA2011",
 		"Socket FS1",
 		"Socket FS2",
 		"Socket FM1",
-		"Socket FM2" /* 0x2A */
+		"Socket FM2",
+		"Socket LGA2011-3",
+		"Socket LGA1356-3" /* 0x2C */
 	};
 
 	if (code >= 0x01 && code <= 0x2A)
