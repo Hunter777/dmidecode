@@ -2231,6 +2231,14 @@ static void dmi_memory_device_extended_size(u32 code)
 		printf(" %lu TB", (unsigned long)code >> 20);
 }
 
+static void dmi_memory_voltage_value(u16 code)
+{
+	if (code == 0)
+		printf(" Unknown");
+	else
+		printf(" %.3f V", (float)(i16)code / 1000);
+}
+
 static const char *dmi_memory_device_form_factor(u8 code)
 {
 	/* 7.18.1 */
@@ -3646,6 +3654,16 @@ static void dmi_decode(const struct dmi_header *h, u16 ver)
 			if (h->length < 0x22) break;
 			printf("\tConfigured Clock Speed:");
 			dmi_memory_device_speed(WORD(data + 0x20));
+			printf("\n");
+			if (h->length < 0x28) break;
+			printf("\tMinimum voltage: ");
+			dmi_memory_voltage_value(WORD(data + 0x22));
+			printf("\n");
+			printf("\tMaximum voltage: ");
+			dmi_memory_voltage_value(WORD(data + 0x24));
+			printf("\n");
+			printf("\tConfigured voltage: ");
+			dmi_memory_voltage_value(WORD(data + 0x26));
 			printf("\n");
 			break;
 
